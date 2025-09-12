@@ -11,7 +11,7 @@ Il propose 3 approches :
 
 ### 1. Cloner le projet
 ```bash
-git clone https://github.com/ton-repo/algorithme-investissement.git
+git clone git@github.com:C-eorl/P7---Algorithme-investissement.git
 cd algorithme-investissement
 ```
 ### 2. Créer un environnement virtuel
