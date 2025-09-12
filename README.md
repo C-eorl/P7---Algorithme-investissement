@@ -12,7 +12,7 @@ Il propose 3 approches :
 ### 1. Cloner le projet
 ```bash
 git clone git@github.com:C-eorl/P7---Algorithme-investissement.git
-cd algorithme-investissement
+cd P7---Algorithme-investissement
 ```
 ### 2. Créer un environnement virtuel
 ```bash
