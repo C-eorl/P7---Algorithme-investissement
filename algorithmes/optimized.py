@@ -12,27 +12,33 @@ def knapsack_algo(actions: list[tuple[str, float, float, float]], budget: int):
     table = [[0] * (budget + 1) for _ in range(nb_actions + 1)]
 
     # algo
-    for i in range(1, nb_actions+1):
-        for w in range(budget+1):
-            cost = int(actions[i-1][1] * 100)
-            profit = actions[i-1][3]
-            if cost <= w:
-                table[i][w] = max(profit + table[i-1][w - cost], table[i-1][w])
+    for action_index in range(1, nb_actions+1):
+        for current_budget in range(budget+1):
+            action_cost = int(actions[action_index-1][1] * 100)
+            action_profit = actions[action_index-1][3]
+            # table[i][w] = profit de l'action i par rapport a un budget w
+            if action_cost <= current_budget:
+                table[action_index][current_budget] = max(
+                    action_profit + table[action_index-1][current_budget - action_cost],
+                    table[action_index-1][current_budget]
+                )
+                # profit de l'action i par rapport à un budget w = soit profit de
+                # l'action i + le profit optimal de l'action i-1 avec le budget restant
             else:
-                table[i][w] = table[i-1][w]
+                table[action_index][current_budget] = table[action_index-1][current_budget]
 
     # récuperation résultat
-    w = budget
-    i = nb_actions
+    curr_budget = budget
+    index_action = nb_actions
     action_resultat = []
-    while i > 0 and w > 0:
-        cost = int(actions[i-1][1] * 100)
-        if table[i][w] != table[i-1][w]:
-            action_resultat.append(actions[i-1])
-            w = w - cost
-            i -= 1
+    while index_action > 0 and curr_budget > 0:
+        cost = int(actions[index_action-1][1] * 100)
+        if table[index_action][curr_budget] != table[index_action-1][curr_budget]:
+            action_resultat.append(actions[index_action-1])
+            curr_budget = curr_budget - cost
+            index_action -= 1
         else:
-            i -= 1
+            index_action -= 1
 
     action_resultat.reverse()
     best_profit = sum(action[3] for action in action_resultat)
