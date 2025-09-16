@@ -1,5 +1,9 @@
 def greedy_algo(actions: list[tuple[str, float, float, float]], budget):
-    # liste trié en fonction du ratio profit/cout
+    """
+    liste triée en fonction du ratio profit/cout
+    :param actions: liste de tuple comprenant les informations de chaque action (name, cost, benefit, profit)
+    return : la meilleure combinaison, son profit total et son coût total
+    """
     list_sort_action = sorted(actions, key=lambda x: x[3] / x[1], reverse=True)
 
     # initialisation
