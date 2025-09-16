@@ -18,8 +18,8 @@ def display_result(result: dict):
     print(f"{Fore.CYAN}Totals d'actions :{Style.RESET_ALL} {result['number_actions']} - {Fore.CYAN}Totals d'action valide :{Style.RESET_ALL} {result['number_valid_actions']}")
     print(f"{Fore.CYAN}Budget max :{Style.RESET_ALL} {result['budget']} euros")
     print(f"{Fore.CYAN}Meilleure combinaison d'actions :{Style.RESET_ALL} \n{result['best_combo']}")
-    print(f"{Fore.CYAN}Profit total :{Style.RESET_ALL} {result['best_profit']} euros")
-    print(f"{Fore.CYAN}Cout total :{Style.RESET_ALL} {result['best_cost']} euros")
+    print(f"{Fore.CYAN}Profit total :{Style.RESET_ALL} {result['best_profit']:.2f} euros")
+    print(f"{Fore.CYAN}Cout total :{Style.RESET_ALL} {result['best_cost']:.2f} euros")
     print("\n" + 50*f"{Fore.CYAN}=")
 
 def main():
