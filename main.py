@@ -8,6 +8,9 @@ from algorithmes.bruteforce import bruteforce_algo
 from algorithmes.greedy import greedy_algo
 
 def display_result(result: dict):
+    """ Affiche les résultats de l'algorithme
+    :param result: dictionnaire comprenant toutes les informations du script
+    """
     init(autoreset=True)
     print(f"\n{Fore.CYAN}=== Résultat - utilisation algorithme {result['algo_used']} ==={Style.RESET_ALL}\n")
     print(f"{Fore.CYAN}Temps d'éxécution du script:{Style.RESET_ALL} {result['time']:.4f} secondes")
