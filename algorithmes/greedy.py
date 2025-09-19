@@ -4,12 +4,12 @@ def greedy_algo(actions: list[tuple[str, float, float, float]], budget):
     :param actions: liste de tuple comprenant les informations de chaque action (name, cost, benefit, profit)
     :return: la meilleure combinaison, son profit total et son coût total
     """
-    list_sort_action = sorted(actions, key=lambda x: x[3] / x[1], reverse=True)
-
     # initialisation
     best_profit = 0
     best_cost = 0
     best_combo = []
+
+    list_sort_action = sorted(actions, key=lambda x: x[3] / x[1], reverse=True)
 
     for action in list_sort_action:
         cost_action = action[1]
